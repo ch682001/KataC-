@@ -1,1 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string a = "abcda";
+            Kata kata = new Kata();
+           
+
+            Console.WriteLine(kata.IsIsogram(a));
+            Console.Read();
+        }
+
+        
+    }
+    public class Kata
+    {
+        public bool IsIsogram(string str)
+        {
+
+            if (str == "")
+            {
+                return true;
+            }
+            else
+            {
+                char[] chararray = str.ToUpper().ToCharArray();
+                for (int i = 0; i < chararray.Length; i++)
+                {
+                    for (int j = i + 1; j < chararray.Length; j++)
+                    {
+                        if (chararray[i].Equals(chararray[j]))
+                        {
+                            return false;
+                        }
+
+                    }
+                }
+                return true;
+            }
+            
+            //return str.ToLower().Distinct().Count() == str.Length; //BestSolution
+        }
+    }
+
+}
