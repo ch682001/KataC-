@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _7kyuTwoToOne
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string a = "xyaabbbccccdefww";
+            string b = "xxxxyyyyabklmopq";
+            string c = "abcdefghijklmnopqrstuvwxyz";
+            TwoToOne tto = new TwoToOne();
+
+            Console.WriteLine(tto.Longest(a, b));
+            Console.WriteLine(tto.Longest(c, b));
+            Console.Read();
+        }
+    }
+
+    public class TwoToOne
+    {
+        public string Longest(string s1, string s2)
+        {
+            //return new string ((s1 +s2).Distinct().OrderBy(x=>x).ToArray ()); //Clearly solution
+            var a1 = (s1 + s2).Distinct().ToArray();
+            string a2 = "";
+            Array.Sort(a1);
+            foreach (var item in a1)
+            {
+                 a2 += item;
+            }
+
+            return a2;
+
+        }
+    }
+}
