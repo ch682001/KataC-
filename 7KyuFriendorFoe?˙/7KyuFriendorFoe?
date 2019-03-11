@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _7kyuFriendorFoe
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] expected = { "Ryan", "Mark" };
+            string[] names = { "Ryan", "Kieran", "Mark", "Jimmy" };
+            Kata kata = new Kata();
+
+            foreach (var item in kata.FriendOrFoe(expected))
+            {
+                Console.WriteLine(item);
+            }
+            foreach (var item in kata.FriendOrFoe(names))
+            {
+                Console.WriteLine(item);
+            }
+            Console.Read();
+
+
+        }
+    }
+
+    public class Kata
+    {
+        public IEnumerable<string> FriendOrFoe(string[] names)
+        {
+            List<string> results = new List<string>();
+            foreach (var item in names)
+            {
+                if (item.Length == 4)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+    }
+}
