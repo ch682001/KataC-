@@ -32,6 +32,8 @@ namespace _7kyuFriendorFoe
     {
         public IEnumerable<string> FriendOrFoe(string[] names)
         {
+            //return names.Where(name => name.Length == 4); //clearly solution
+        
             List<string> results = new List<string>();
             foreach (var item in names)
             {
