@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _6kyuEqualSidesOfAnArray
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+            int[] a1 = new int[] { 1, 2, 3, 4, 3, 2, 1 }; //return 3
+            int[] a2 = new int[] { 1, 100, 50, -51, 1, 1 }; //return 1
+            int[] a3 = new int[] { 1, 2, 3, 4, 5, 6 }; //return -1
+            int[] a4 = new int[] { 20, 10, 30, 10, 10, 15, 35 }; //return 3
+            int[] a5 = new int[] { -5055, -8389, -34, -5425, -6016, 8507, 9296, 2208, -4752, -714, -5500, 4454, -9220, 6893, 6002, -6921, 3490, 7488, 7085, 692, 7175, 9501, -8570, 550, -7951, 5119, -3475, -1178, 9886, -99, 6674, -2516, 874, 152, 2172, 5944, 7613, -5631, -738, -565, 1327, 9802, 8994, -4846, 1935, 1008, -7691, 9157, 731, 9683, -5652, 2185, 6257, 2526, -3801, -4556, -9820, 9415, -7475, -1135, 1981, 473, 2321, 5346, 2611, 7015, -6421, 627, -5279, -9942, -4534, -880, -1774, -2351, 9365, 7372, -9494, 6276, 8615, 1041, 2809, -2632, 8090, -9797, -4448, -5511, 50206 };
+            //return 48
+
+            Console.WriteLine(Kata.FindEvenIndex(a1));
+            Console.WriteLine(Kata.FindEvenIndex(a2));
+            Console.WriteLine(Kata.FindEvenIndex(a3));
+            Console.WriteLine(Kata.FindEvenIndex(a4));
+            Console.WriteLine(Kata.FindEvenIndex(a5));
+            Console.Read();
+
+        }
+
+        public class Kata
+        {
+            public static int FindEvenIndex(int[] arr)
+            {
+
+                for (int i = 1; i < arr.Count(); i++)
+                {
+                    if (i <= arr.Length - 2)
+                    {
+
+                        int[] a11 = new int[i];
+                        int[] a12 = new int[arr.Length - i - 1];
+                        for (int j = 0; j < a11.Length; j++)
+                        {
+                            a11[j] = arr[j];
+                        }
+                        for (int k = 0; k < arr.Length - i - 1; k++)
+                        {
+                            a12[k] = arr[k + i + 1];
+                        }
+                        if (a11.Sum() == a12.Sum())
+                        {
+                            return i;
+                        }
+
+                    }
+                }
+                return -1;
+                
+                //int leftSum = 0, rightSum = arr.Sum();//Clearly solution
+
+                //for (int i = 0; i < arr.Length; ++i)
+                //{
+                //    rightSum -= arr[i];
+
+                //    if (leftSum == rightSum)
+                //    {
+                //        return i;
+                //    }
+
+                //    leftSum += arr[i];
+                //}
+
+                //return -1;
+            }
+        }
+        }
+    }
+}
